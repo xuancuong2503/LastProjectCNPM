@@ -1,0 +1,32 @@
+﻿@model List<CNPM.Models.SanPham>
+@{
+    ViewBag.Title = "ProductList";
+}
+<div class="container">
+
+
+    <table class="table table-condensed table-productvariants">
+        <tr>
+            <th><b>Mã SP</b></th>
+            <th><b>Tên SP</b></th>
+            <th><b>Mô Tả</b></th>
+            <th><b>Mã Danh Mục</b></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td>@item.Mota</td>
+                <td>@item.MaDanhMuc</td>
+                <td>
+
+                    <a href="@Url.Action("DeleteProduct","Account",new {ma= item.MaSP})"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                    <a href="@Url.Action("Product",new { item.MaSP,item.TenSP,item.Mota,item
+                        .MaDanhMuc})"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

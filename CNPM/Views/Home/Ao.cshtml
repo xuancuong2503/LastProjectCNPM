@@ -1,0 +1,69 @@
+﻿@using CNPM.Models
+@{
+    ViewBag.Title = "Ao";
+    List<SanPham> ao = ViewBag.ao;
+}
+
+<div class="container">
+    
+      
+    <div class="row" style="text-align:center">
+        <h2 style="color:blue; background-color:yellow"><b><i>Áo Thun</i></b></h2>
+        @foreach (var i in ao)
+        {
+            if (i.MaDanhMuc == 1)
+
+            {
+
+                <div class="col-sm-3">
+                    <a href="@Url.Action("AnubisVer2","Clothes", new { id = @i.MaSP})"> <img class="img-fluid" src="~/fonts/img/aothun/@i.HinhAnh" /></a>
+                    <p>@i.TenSP</p>
+                    <div>
+                       
+                    </div>
+                </div>
+            }
+        }
+       
+    </div>
+    <div class="row" style="text-align:center">
+        <h2 style="color:blue; background-color:yellow"><b><i>Áo Khoác</i></b></h2>
+        @foreach (var i in ao)
+        {
+            if (i.MaDanhMuc == 2)
+            {
+                <div class="col-sm-3">
+                   <a href="@Url.Action("AoKhoac","Clothes",new { id = i.MaSP })"><img class="img-fluid" src="~/fonts/img/aokhoac/@i.HinhAnh" /></a>
+                    <p>@i.TenSP</p>
+                </div>
+            }
+
+
+        }
+
+    </div>
+    <div class="row" style="text-align:center">
+        <h2 style="color:blue; background-color:yellow"><b><i>Áo Sơ Mi</i></b></h2>
+        @foreach (var i in ao)
+        {
+            if (i.MaDanhMuc == 3)
+            {
+                <div class="col-sm-3">
+                    <a href="@Url.Action("SoMi","Clothes",new { id = i.MaSP })">
+                        <img class="img-fluid" src="~/fonts/img/aosomi/@i.HinhAnh" /> </a>
+                        <p>@i.TenSP</p>
+</div>
+            }
+
+
+        }
+
+    </div>
+   
+
+</div>
+
+
+
+
+

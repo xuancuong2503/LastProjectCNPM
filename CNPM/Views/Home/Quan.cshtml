@@ -1,0 +1,46 @@
+﻿@using CNPM.Models
+@{
+    ViewBag.Title = "Quần";
+    List<SanPham> quan = ViewBag.quan;
+}
+
+<div class="container">
+    
+    <div class="row" style="text-align:center">
+        <h2 style="color:blue; background-color:yellow"><b><i>Quần Dài</i></b></h2>
+        @foreach (var i in quan)
+        {
+            if (i.MaDanhMuc == 4)
+
+            {
+
+    <div class="col-sm-3">
+        <a href="@Url.Action("QuanDai","Clothes", new { id = @i.MaSP})">
+            <img class="img-fluid" src="~/fonts/img/quandai/@i.HinhAnh" /> </a>
+            <p>@i.TenSP</p>
+    </div>
+            }
+        }
+
+    </div>
+    <div class="row" style="text-align:center">
+        <h2 style="color:blue; background-color:yellow"><b><i>Quần Short</i></b></h2>
+        @foreach (var i in quan)
+        {
+            if (i.MaDanhMuc == 5)
+            {
+    <div class="col-sm-3">
+        <a href="@Url.Action("QuanShort","Clothes", new { id = @i.MaSP})"><img class="img-fluid" src="~/fonts/img/quanshort/@i.HinhAnh" /></a>
+         <p>@i.TenSP</p>
+    </div>
+            }
+        }
+
+    </div>
+   
+</div>
+
+
+
+
+

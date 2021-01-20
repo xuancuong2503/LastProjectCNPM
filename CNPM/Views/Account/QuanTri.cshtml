@@ -1,0 +1,44 @@
+﻿@using CNPM.Models
+@{
+    ViewBag.Title = "QuanTri";
+    List<SanPham> quanTri = ViewBag.quanTri;
+}
+<div class="container">
+  
+    <table class="table table-condensed table-productvariants">
+        <thead>
+            <tr style="color:white;background-color:black">
+                <td><b>Mã SP</b></td>
+                <td><b>Tên SP</b></td>
+                <td><b>Mô Tả</b></td>
+                <td><b>Mã Danh Mục</b></td>       
+                <td><b>Quản Trị</b></td>
+            </tr>
+        </thead>
+        @foreach (var item in quanTri)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td>@item.Mota</td>
+                    <td>@item.MaDanhMuc</td>
+                    <td>
+                       
+                        <a href=@Url.Action("","")><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                        <a href="#"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        }
+
+
+
+
+
+    </table>
+    <div style="display:flex; justify-content: center">  <button style="background-color: greenyellow" class="btn btn-primary"><a href=@Url.Action("Product","Account")><i class="glyphicon glyphicon-plus"></i> Thêm</a></button>  </div>
+
+</div>

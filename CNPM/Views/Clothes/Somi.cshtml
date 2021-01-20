@@ -1,0 +1,27 @@
+﻿@using CNPM.Models;
+@{
+    ViewBag.Title = "Áo Sơ Mi";
+
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-5">
+                <img class="img-fluid" src="~/fonts/img/aosomi/@item.HinhAnh" />
+            </div>
+
+            <div class="col-sm-5" style="padding-top:8%">
+                <h2 style="color:darkgreen">@item.TenSP </h2>
+                <h3 style="text-align: center; color: pink">Mô Tả Sản Phẩm</h3>
+                <a style="text-align:center">@item.Mota</a>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+

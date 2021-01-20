@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CSDLWEBnewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="bit" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="MaDM" />
+    </Key>
+    <Property Name="MaDM" Type="int" Nullable="false" />
+    <Property Name="TenDM" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mota" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaDanhMuc" Type="int" />
+  </EntityType>
+  <Association Name="FK__SanPham__MaDanhM__145C0A3F">
+    <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhMuc">
+        <PropertyRef Name="MaDM" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CSDLWEBnewModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__SanPham__MaDanhM__145C0A3F" Association="Self.FK__SanPham__MaDanhM__145C0A3F">
+      <End Role="DanhMuc" EntitySet="DanhMuc" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
